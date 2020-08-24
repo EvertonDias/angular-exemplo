@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>{{ dados.titulo }}</h1>
+<div mat-dialog-content>
+  <div>
+    <form>
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Informe o nome"
+          name="nome"
+          [ngModel]="dados.nomeCliente"
+          (ngModelChange)="dados.nomeCliente = $event"
+        />
+        <mat-error *ngIf="isNomeInvalido(dados.nomeCliente)">
+          Informe o nome do cliente
+        </mat-error>
+      </div>
+    </form>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button
+    [disabled]="!isValidNome"
+    mat-raised-button
+    class="btn btn-primary"
+    cdkFocusInitial
+    [mat-dialog-close]="dados.nomeCliente"
+  >
+    Salvar
+  </button>
+  <button mat-raised-button class="btn btn-danger" [mat-dialog-close]="false">
+    Cancelar
+  </button>
+</div>

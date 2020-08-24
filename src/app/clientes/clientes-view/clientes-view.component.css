@@ -1,0 +1,13 @@
+.widthToolbar {
+  width: 95%;
+}
+
+.styleFilter {
+  margin-left: auto;
+  display: flex;
+  align-items: baseline;
+}
+
+.colorAdd {
+  background-color: deepskyblue;
+}

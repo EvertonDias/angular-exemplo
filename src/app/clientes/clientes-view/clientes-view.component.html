@@ -1,0 +1,44 @@
+<p>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span class="widthToolbar">Clientes</span>
+      <button class="colorAdd" mat-icon-button (click)="adicionarCliente()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</p>
+
+<div class="form-group styleFilter">
+  <label class="col-sm.2 col-from-label"> Filtrar :</label>
+
+  <div class="col-sm-10">
+    <input
+      [(ngModel)]="filter"
+      class="form-control"
+      placeholder="Filtrar por nome"
+    />
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th width="75%">Nome</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of clientesFiltrados">
+      <td>{{ cliente.nome }}</td>
+      <td>
+        <button (click)="editarCliente(cliente)" class="btn btn-primary">
+          Editar
+        </button>
+        <button (click)="deletarCliente(cliente.id)" class="btn btn-danger">
+          Deletar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
